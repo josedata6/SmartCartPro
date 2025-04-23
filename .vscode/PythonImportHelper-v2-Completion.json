@@ -1,0 +1,146 @@
+[
+    {
+        "label": "displayCatalog",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def displayCatalog(catalog):\n    print(\"Product Catalog:\")\n    for productName, price in catalog: # iterates through the catalog\n        # displays the product name and price\n        # formatted to 2 decimal places\n        print(f\"- {productName}: ${price:.2f}\")\n# This function retrieves the price of a product from the catalog.\n# It takes the catalog and product name as arguments.\ndef getProductPrice(catalog, productName):\n    for name, price in catalog: # iterates through the catalog",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "getProductPrice",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def getProductPrice(catalog, productName):\n    for name, price in catalog: # iterates through the catalog\n        # checks if the product name matches\n        if name == productName:\n            return price # returns the price if found\n    # returns None if the product is not found\n    return None\n# ------------------- STEP 2: Cart Operations -------------------\n# This function checks if the requested quantity of a product is available in stock.\n# It takes the stock, product name, and quantity as arguments.",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "checkStock",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def checkStock(stock, product, qty):\n    if product in stock: # checks if the product is in stock\n        if stock[product] >= qty: # checks if the requested quantity is available\n            return True # returns True if available\n    return False # returns False if not available\n# This function adds a product to the cart if it is in stock.\n# It takes the cart, stock, product name, and quantity as arguments.\ndef addToCart(cart, stock, product, qty): \n    if checkStock(stock, product, qty): # checks if the product is in stock\n        cart.append({\"product\": product, \"quantity\": qty}) # adds the product to the cart",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "addToCart",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def addToCart(cart, stock, product, qty): \n    if checkStock(stock, product, qty): # checks if the product is in stock\n        cart.append({\"product\": product, \"quantity\": qty}) # adds the product to the cart\n        stock[product] -= qty # updates the stock\n        print(f\"Added {qty} x {product} to cart.\") # confirms addition\n    else:\n        print(\"Not enough stock or product not found.\")\n# This function removes a product from the cart.\n# It takes the cart and product name as arguments.\ndef removeFromCart(cart, product):",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "removeFromCart",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def removeFromCart(cart, product):\n    for item in cart:\n        if item[\"product\"] == product: # checks if the product is in the cart\n            cart.remove(item) # removes the product from the cart\n            print(f\"Removed {product} from cart.\") # confirms removal\n            break\n# This function updates the quantity of a product in the cart.\n# It takes the cart, product name, and new quantity as arguments.\ndef viewCart(cart):\n    if not cart:",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "viewCart",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def viewCart(cart):\n    if not cart:\n        print(\"Your cart is empty.\") # checks if the cart is empty\n    else:\n        print(\"Current cart:\") # displays the cart\n        for item in cart:\n            print(f\"- {item['product']}: {item['quantity']}\") # displays the product and quantity\n# ------------------- STEP 3: Checkout -------------------\n# This function calculates the total price of items in the cart.\n# It takes the cart and catalog as arguments.",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "calculateTotal",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def calculateTotal(cart, catalog):\n    total = 0 # initializes total to 0\n    for item in cart:\n        product = item[\"product\"] # gets the product name\n        # gets the quantity of the product\n        qty = item[\"quantity\"]\n        for name, price in catalog: # iterates through the catalog\n            # checks if the product name matches\n            if name == product:\n                total += price * qty # calculates the total price",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "applyDiscounts",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def applyDiscounts(total):\n    if total > 200: # applies 10% discount for orders over $200\n        return total * 0.90  # 10% off\n    elif total > 100: # applies 5% discount for orders over $100\n        return total * 0.95  # 5% off\n    else:\n        return total\n# This function applies tax to the total price.\n# It takes the total price as an argument.\ndef applyTax(total):",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "applyTax",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def applyTax(total):\n    return total * 1.08  # 8% tax # applies tax\n# This function generates a receipt for the items in the cart.\n# It takes the cart and catalog as arguments.\ndef generateReceipt(cart, catalog):\n    print(\"\\n--- RECEIPT ---\")\n    for item in cart:\n        product = item[\"product\"] # gets the product name\n        # gets the quantity of the product\n        qty = item[\"quantity\"]",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "generateReceipt",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def generateReceipt(cart, catalog):\n    print(\"\\n--- RECEIPT ---\")\n    for item in cart:\n        product = item[\"product\"] # gets the product name\n        # gets the quantity of the product\n        qty = item[\"quantity\"]\n        price = getProductPrice(catalog, product) # gets the price of the product\n        print(f\"{product} x{qty} = ${price * qty:.2f}\") # displays the product, quantity, and total price\n    subtotal = calculateTotal(cart, catalog) # calculates the subtotal\n    discounted = applyDiscounts(subtotal) # applies discounts",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "recommendProduct",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def recommendProduct(catalog, cart, index=0):\n    if index >= len(catalog):\n        return \"No recommendation available.\"\n    product = catalog[index][0]\n    for item in cart:\n        if item[\"product\"] == product:\n            return recommendProduct(catalog, cart, index + 1)\n    return product\n# ------------------- STEP 5: Order History -------------------\ndef updateOrderHistory(orderHistory, cart):",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "updateOrderHistory",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def updateOrderHistory(orderHistory, cart):\n    order = tuple((item[\"product\"], item[\"quantity\"]) for item in cart)\n    orderHistory.append(order)\ndef summarizeOrders(orderHistory):\n    print(\"\\n--- Order History ---\")\n    for i, order in enumerate(orderHistory, start=1):\n        print(f\"Order {i}:\")\n        for product, qty in order:\n            print(f\"  {product} x{qty}\")\n# ------------------- STEP 6: Sales Analytics -------------------",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "summarizeOrders",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def summarizeOrders(orderHistory):\n    print(\"\\n--- Order History ---\")\n    for i, order in enumerate(orderHistory, start=1):\n        print(f\"Order {i}:\")\n        for product, qty in order:\n            print(f\"  {product} x{qty}\")\n# ------------------- STEP 6: Sales Analytics -------------------\ndef getTopProducts(salesData):\n    print(\"\\n--- Top Selling Products ---\")\n    sortedProducts = sorted(salesData.items(), key=lambda x: x[1], reverse=True)",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "getTopProducts",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def getTopProducts(salesData):\n    print(\"\\n--- Top Selling Products ---\")\n    sortedProducts = sorted(salesData.items(), key=lambda x: x[1], reverse=True)\n    for product, count in sortedProducts[:3]:\n        print(f\"{product}: {count} sold\")\n# ------------------- STEP 7: String Utilities -------------------\ndef stringMatchScore(str1, str2):\n    score = 0\n    for i in range(min(len(str1), len(str2))):\n        if str1[i] == str2[i]:",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "stringMatchScore",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def stringMatchScore(str1, str2):\n    score = 0\n    for i in range(min(len(str1), len(str2))):\n        if str1[i] == str2[i]:\n            score += 1\n    return score\n# ------------------- Main Function -------------------\ndef main():\n    catalog = [(\"Avocado\", 1.99), (\"Banana\", 0.99), (\"Orange\", 1.29)]\n    stock = {\"Avocado\": 10, \"Banana\": 15, \"Orange\": 12}",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "SmartCartProject",
+        "description": "SmartCartProject",
+        "peekOfCode": "def main():\n    catalog = [(\"Avocado\", 1.99), (\"Banana\", 0.99), (\"Orange\", 1.29)]\n    stock = {\"Avocado\": 10, \"Banana\": 15, \"Orange\": 12}\n    cart = []\n    orderHistory = []\n    salesData = {\"Avocado\": 0, \"Banana\": 0, \"Orange\": 0}\n    while True:\n        print(\"\\nSmartCart Pro Menu:\")\n        print(\"1. View Catalog\")\n        print(\"2. Add to Cart\")",
+        "detail": "SmartCartProject",
+        "documentation": {}
+    }
+]
