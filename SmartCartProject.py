@@ -109,43 +109,55 @@ def generateReceipt(cart, catalog):
     print(f"Final Total (with Tax): ${finalTotal:.2f}") # displays the final total
 
 # ------------------- STEP 4: Recommendation (Recursive) -------------------
-def recommendProduct(catalog, cart, index=0):
-    if index >= len(catalog):
+# This function recommends a product based on the user's cart.
+# It takes the catalog, cart, and index as arguments.
+def recommendProduct(catalog, cart, index=0):  # checks if the index is provided
+    if index >= len(catalog): # checks if the index is out of range
         return "No recommendation available."
-    product = catalog[index][0]
+    product = catalog[index][0] # gets the product name
     for item in cart:
-        if item["product"] == product:
-            return recommendProduct(catalog, cart, index + 1)
+        if item["product"] == product: # checks if the product is in the cart
+            return recommendProduct(catalog, cart, index + 1) # recursively calls the function with the next index
     return product
 
 # ------------------- STEP 5: Order History -------------------
+# This function updates the order history with the current cart.
+# It takes the order history and cart as arguments.
 def updateOrderHistory(orderHistory, cart):
-    order = tuple((item["product"], item["quantity"]) for item in cart)
-    orderHistory.append(order)
+    order = tuple((item["product"], item["quantity"]) for item in cart) # creates a tuple of the cart items
+    orderHistory.append(order) # adds the order to the history
 
+# This function summarizes the order history.
+# It takes the order history as an argument.
 def summarizeOrders(orderHistory):
     print("\n--- Order History ---")
-    for i, order in enumerate(orderHistory, start=1):
-        print(f"Order {i}:")
-        for product, qty in order:
-            print(f"  {product} x{qty}")
+    for i, order in enumerate(orderHistory, start=1): # iterates through the order history
+        print(f"Order {i}:") # displays the order number
+        for product, qty in order: # iterates through the order items
+            print(f"  {product} x{qty}") # displays the product and quantity
 
 # ------------------- STEP 6: Sales Analytics -------------------
-def getTopProducts(salesData):
+# This function retrieves the top-selling products from the sales data.
+def getTopProducts(salesData): 
     print("\n--- Top Selling Products ---")
-    sortedProducts = sorted(salesData.items(), key=lambda x: x[1], reverse=True)
-    for product, count in sortedProducts[:3]:
-        print(f"{product}: {count} sold")
+    sortedProducts = sorted(salesData.items(), key=lambda x: x[1], reverse=True) # sorts the products by sales count
+    for product, count in sortedProducts[:3]: # gets the top 3 products
+        print(f"{product}: {count} sold") # displays the product and sales count
 
 # ------------------- STEP 7: String Utilities -------------------
+# This function checks if a string is a palindrome.
 def stringMatchScore(str1, str2):
-    score = 0
-    for i in range(min(len(str1), len(str2))):
+    score = 0 # initializes score to 0
+    for i in range(min(len(str1), len(str2))): # iterates through the strings
+        # checks if the characters at the same index match
         if str1[i] == str2[i]:
-            score += 1
+            score += 1 # increments score if they match
     return score
 
 # ------------------- Main Function -------------------
+# This function runs the main program loop.
+# It initializes the catalog, stock, cart, order history, and sales data.
+# It displays the menu and handles user input.
 def main():
     catalog = [("Avocado", 1.99), ("Banana", 0.99), ("Orange", 1.29)]
     stock = {"Avocado": 10, "Banana": 15, "Orange": 12}

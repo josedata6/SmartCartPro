@@ -94,7 +94,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def recommendProduct(catalog, cart, index=0):\n    if index >= len(catalog):\n        return \"No recommendation available.\"\n    product = catalog[index][0]\n    for item in cart:\n        if item[\"product\"] == product:\n            return recommendProduct(catalog, cart, index + 1)\n    return product\n# ------------------- STEP 5: Order History -------------------\ndef updateOrderHistory(orderHistory, cart):",
+        "peekOfCode": "def recommendProduct(catalog, cart, index=0):  # checks if the index is provided\n    if index >= len(catalog): # checks if the index is out of range\n        return \"No recommendation available.\"\n    product = catalog[index][0] # gets the product name\n    for item in cart:\n        if item[\"product\"] == product: # checks if the product is in the cart\n            return recommendProduct(catalog, cart, index + 1) # recursively calls the function with the next index\n    return product\n# ------------------- STEP 5: Order History -------------------\n# This function updates the order history with the current cart.",
         "detail": "SmartCartProject",
         "documentation": {}
     },
@@ -103,7 +103,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def updateOrderHistory(orderHistory, cart):\n    order = tuple((item[\"product\"], item[\"quantity\"]) for item in cart)\n    orderHistory.append(order)\ndef summarizeOrders(orderHistory):\n    print(\"\\n--- Order History ---\")\n    for i, order in enumerate(orderHistory, start=1):\n        print(f\"Order {i}:\")\n        for product, qty in order:\n            print(f\"  {product} x{qty}\")\n# ------------------- STEP 6: Sales Analytics -------------------",
+        "peekOfCode": "def updateOrderHistory(orderHistory, cart):\n    order = tuple((item[\"product\"], item[\"quantity\"]) for item in cart) # creates a tuple of the cart items\n    orderHistory.append(order) # adds the order to the history\ndef summarizeOrders(orderHistory):\n    print(\"\\n--- Order History ---\")\n    for i, order in enumerate(orderHistory, start=1):\n        print(f\"Order {i}:\")\n        for product, qty in order:\n            print(f\"  {product} x{qty}\")\n# ------------------- STEP 6: Sales Analytics -------------------",
         "detail": "SmartCartProject",
         "documentation": {}
     },
