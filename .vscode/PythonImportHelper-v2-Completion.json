@@ -103,7 +103,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def updateOrderHistory(orderHistory, cart):\n    order = tuple((item[\"product\"], item[\"quantity\"]) for item in cart) # creates a tuple of the cart items\n    orderHistory.append(order) # adds the order to the history\ndef summarizeOrders(orderHistory):\n    print(\"\\n--- Order History ---\")\n    for i, order in enumerate(orderHistory, start=1):\n        print(f\"Order {i}:\")\n        for product, qty in order:\n            print(f\"  {product} x{qty}\")\n# ------------------- STEP 6: Sales Analytics -------------------",
+        "peekOfCode": "def updateOrderHistory(orderHistory, cart):\n    order = tuple((item[\"product\"], item[\"quantity\"]) for item in cart) # creates a tuple of the cart items\n    orderHistory.append(order) # adds the order to the history\n# This function summarizes the order history.\n# It takes the order history as an argument.\ndef summarizeOrders(orderHistory):\n    print(\"\\n--- Order History ---\")\n    for i, order in enumerate(orderHistory, start=1): # iterates through the order history\n        print(f\"Order {i}:\") # displays the order number\n        for product, qty in order: # iterates through the order items",
         "detail": "SmartCartProject",
         "documentation": {}
     },
@@ -112,7 +112,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def summarizeOrders(orderHistory):\n    print(\"\\n--- Order History ---\")\n    for i, order in enumerate(orderHistory, start=1):\n        print(f\"Order {i}:\")\n        for product, qty in order:\n            print(f\"  {product} x{qty}\")\n# ------------------- STEP 6: Sales Analytics -------------------\ndef getTopProducts(salesData):\n    print(\"\\n--- Top Selling Products ---\")\n    sortedProducts = sorted(salesData.items(), key=lambda x: x[1], reverse=True)",
+        "peekOfCode": "def summarizeOrders(orderHistory):\n    print(\"\\n--- Order History ---\")\n    for i, order in enumerate(orderHistory, start=1): # iterates through the order history\n        print(f\"Order {i}:\") # displays the order number\n        for product, qty in order: # iterates through the order items\n            print(f\"  {product} x{qty}\") # displays the product and quantity\n# ------------------- STEP 6: Sales Analytics -------------------\n# This function retrieves the top-selling products from the sales data.\ndef getTopProducts(salesData): \n    print(\"\\n--- Top Selling Products ---\")",
         "detail": "SmartCartProject",
         "documentation": {}
     },
@@ -121,7 +121,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def getTopProducts(salesData):\n    print(\"\\n--- Top Selling Products ---\")\n    sortedProducts = sorted(salesData.items(), key=lambda x: x[1], reverse=True)\n    for product, count in sortedProducts[:3]:\n        print(f\"{product}: {count} sold\")\n# ------------------- STEP 7: String Utilities -------------------\ndef stringMatchScore(str1, str2):\n    score = 0\n    for i in range(min(len(str1), len(str2))):\n        if str1[i] == str2[i]:",
+        "peekOfCode": "def getTopProducts(salesData): \n    print(\"\\n--- Top Selling Products ---\")\n    sortedProducts = sorted(salesData.items(), key=lambda x: x[1], reverse=True) # sorts the products by sales count\n    for product, count in sortedProducts[:3]: # gets the top 3 products\n        print(f\"{product}: {count} sold\") # displays the product and sales count\n# ------------------- STEP 7: String Utilities -------------------\n# This function checks if a string is a palindrome.\ndef stringMatchScore(str1, str2):\n    score = 0 # initializes score to 0\n    for i in range(min(len(str1), len(str2))): # iterates through the strings",
         "detail": "SmartCartProject",
         "documentation": {}
     },
@@ -130,7 +130,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def stringMatchScore(str1, str2):\n    score = 0\n    for i in range(min(len(str1), len(str2))):\n        if str1[i] == str2[i]:\n            score += 1\n    return score\n# ------------------- Main Function -------------------\ndef main():\n    catalog = [(\"Avocado\", 1.99), (\"Banana\", 0.99), (\"Orange\", 1.29)]\n    stock = {\"Avocado\": 10, \"Banana\": 15, \"Orange\": 12}",
+        "peekOfCode": "def stringMatchScore(str1, str2):\n    score = 0 # initializes score to 0\n    for i in range(min(len(str1), len(str2))): # iterates through the strings\n        # checks if the characters at the same index match\n        if str1[i] == str2[i]:\n            score += 1 # increments score if they match\n    return score\n# ------------------- Main Function -------------------\n# This function runs the main program loop.\n# It initializes the catalog, stock, cart, order history, and sales data.",
         "detail": "SmartCartProject",
         "documentation": {}
     },
