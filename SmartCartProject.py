@@ -1,8 +1,8 @@
-#SmartCart Project
-
-#### displayCatalog(catalog)
-# This function displays the catalog of items available for purchase.   
 # SmartCart Pro - Modular E-Commerce System
+# This program simulates an e-commerce shopping cart system with various features.
+# It includes product catalog management, cart operations, checkout process,
+# order history tracking, sales analytics, and string utilities.
+
 
 # ------------------- STEP 1: Product Catalog -------------------
 # defines functiona and takes argument catalog
@@ -52,14 +52,13 @@ def removeFromCart(cart, product):
             break
 
 # This function updates the quantity of a product in the cart.
-# It takes the cart, product name, and new quantity as arguments.
 def viewCart(cart):
     if not cart:
         print("Your cart is empty.") # checks if the cart is empty
     else:
         print("Current cart:") # displays the cart
         for item in cart:
-            print(f"- {item['product']}: {item['quantity']}") # displays the product and quantity
+            print(f"- {item["product"]}: {item["quantity"]}") # displays the product and quantity
 
 # ------------------- STEP 3: Checkout -------------------
 # This function calculates the total price of items in the cart.
@@ -89,7 +88,7 @@ def applyDiscounts(total):
 # This function applies tax to the total price.
 # It takes the total price as an argument.
 def applyTax(total):
-    return total * 1.08  # 8% tax # applies tax
+    return total * 1.08  # 8% tax added to total
 
 # This function generates a receipt for the items in the cart.
 # It takes the cart and catalog as arguments.
@@ -166,7 +165,7 @@ def main():
     salesData = {"Avocado": 0, "Banana": 0, "Orange": 0}
 
     while True:
-        print("\nSmartCart Pro Menu:")
+        print("\nSmartCart Menu:")
         print("1. View Catalog")
         print("2. Add to Cart")
         print("3. View Cart")
@@ -200,7 +199,7 @@ def main():
         elif choice == "7":
             getTopProducts(salesData)
         elif choice == "8":
-            print("Thank you for shopping with SmartCart Pro!")
+            print("Thank you for shopping!")
             break
         else:
             print("Invalid option. Try again.")

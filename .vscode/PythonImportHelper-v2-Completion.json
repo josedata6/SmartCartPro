@@ -40,7 +40,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def removeFromCart(cart, product):\n    for item in cart:\n        if item[\"product\"] == product: # checks if the product is in the cart\n            cart.remove(item) # removes the product from the cart\n            print(f\"Removed {product} from cart.\") # confirms removal\n            break\n# This function updates the quantity of a product in the cart.\n# It takes the cart, product name, and new quantity as arguments.\ndef viewCart(cart):\n    if not cart:",
+        "peekOfCode": "def removeFromCart(cart, product):\n    for item in cart:\n        if item[\"product\"] == product: # checks if the product is in the cart\n            cart.remove(item) # removes the product from the cart\n            print(f\"Removed {product} from cart.\") # confirms removal\n            break\n# This function updates the quantity of a product in the cart.\ndef viewCart(cart):\n    if not cart:\n        print(\"Your cart is empty.\") # checks if the cart is empty",
         "detail": "SmartCartProject",
         "documentation": {}
     },
@@ -49,7 +49,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def viewCart(cart):\n    if not cart:\n        print(\"Your cart is empty.\") # checks if the cart is empty\n    else:\n        print(\"Current cart:\") # displays the cart\n        for item in cart:\n            print(f\"- {item['product']}: {item['quantity']}\") # displays the product and quantity\n# ------------------- STEP 3: Checkout -------------------\n# This function calculates the total price of items in the cart.\n# It takes the cart and catalog as arguments.",
+        "peekOfCode": "def viewCart(cart):\n    if not cart:\n        print(\"Your cart is empty.\") # checks if the cart is empty\n    else:\n        print(\"Current cart:\") # displays the cart\n        for item in cart:\n            print(f\"- {item[\"product\"]}: {item[\"quantity\"]}\") # displays the product and quantity\n# ------------------- STEP 3: Checkout -------------------\n# This function calculates the total price of items in the cart.\n# It takes the cart and catalog as arguments.",
         "detail": "SmartCartProject",
         "documentation": {}
     },
@@ -76,7 +76,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def applyTax(total):\n    return total * 1.08  # 8% tax # applies tax\n# This function generates a receipt for the items in the cart.\n# It takes the cart and catalog as arguments.\ndef generateReceipt(cart, catalog):\n    print(\"\\n--- RECEIPT ---\")\n    for item in cart:\n        product = item[\"product\"] # gets the product name\n        # gets the quantity of the product\n        qty = item[\"quantity\"]",
+        "peekOfCode": "def applyTax(total):\n    return total * 1.08  # 8% tax added to total\n# This function generates a receipt for the items in the cart.\n# It takes the cart and catalog as arguments.\ndef generateReceipt(cart, catalog):\n    print(\"\\n--- RECEIPT ---\")\n    for item in cart:\n        product = item[\"product\"] # gets the product name\n        # gets the quantity of the product\n        qty = item[\"quantity\"]",
         "detail": "SmartCartProject",
         "documentation": {}
     },
@@ -139,7 +139,7 @@
         "kind": 2,
         "importPath": "SmartCartProject",
         "description": "SmartCartProject",
-        "peekOfCode": "def main():\n    catalog = [(\"Avocado\", 1.99), (\"Banana\", 0.99), (\"Orange\", 1.29)]\n    stock = {\"Avocado\": 10, \"Banana\": 15, \"Orange\": 12}\n    cart = []\n    orderHistory = []\n    salesData = {\"Avocado\": 0, \"Banana\": 0, \"Orange\": 0}\n    while True:\n        print(\"\\nSmartCart Pro Menu:\")\n        print(\"1. View Catalog\")\n        print(\"2. Add to Cart\")",
+        "peekOfCode": "def main():\n    catalog = [(\"Avocado\", 1.99), (\"Banana\", 0.99), (\"Orange\", 1.29)]\n    stock = {\"Avocado\": 10, \"Banana\": 15, \"Orange\": 12}\n    cart = []\n    orderHistory = []\n    salesData = {\"Avocado\": 0, \"Banana\": 0, \"Orange\": 0}\n    while True:\n        print(\"\\nSmartCart Menu:\")\n        print(\"1. View Catalog\")\n        print(\"2. Add to Cart\")",
         "detail": "SmartCartProject",
         "documentation": {}
     }
